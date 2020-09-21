@@ -152,25 +152,25 @@ git init --bare
 ## 克隆
 ```bash
 # https 协议
-git clone https://github.com/xjh22222228/git-manual.git
+git clone https://github.com/cosyer/git-learning.git
 
 # SSH协议
-git clone git@github.com:xjh22222228/git-manual.git
+git clone git@github.com:cosyer/git-learning.git
 
 # 克隆指定分支， -b 指定分支名字，实际上是克隆所有分支并切换到 develop 分支上
-git clone -b develop https://github.com/xjh22222228/git-manual.git
+git clone -b develop https://github.com/cosyer/git-learning.git
 
 # --single-branch 完全只克隆指定分支
-git clone -b develop --single-branch https://github.com/xjh22222228/git-manual.git
+git clone -b develop --single-branch https://github.com/cosyer/git-learning.git
 
 # 指定克隆后的文件夹名称
-git clone https://github.com/xjh22222228/git-manual.git git-study # 如果后面是 . 在当前目录创建
+git clone https://github.com/cosyer/git-learning.git git-study # 如果后面是 . 在当前目录创建
 
 # 递归克隆，如果项目包含子模块就非常有用
-git clone --recursive git@github.com:xjh22222228/git-manual.git
+git clone --recursive git@github.com:cosyer/git-learning.git
 
 # 克隆深度为1, 只克隆指定分支, 历史记录只克隆最后一条, 减少克隆时间
-git clone --depth=1 https://github.com/xjh22222228/git-manual.git
+git clone --depth=1 https://github.com/cosyer/git-learning.git
 ```
 
 
@@ -183,12 +183,12 @@ git clone --depth=1 https://github.com/xjh22222228/git-manual.git
 # 一般只会显示 origin , 除非你有多个远程仓库地址
 git remote
 
-# 指定-v, 查看当前仓库地址
+# 指定-v, 查看当前远程仓库地址
 git remote -v
 
 # 添加远程仓库地址 example 是自定义名字
 # 添加完后可以通过 git remote 就能看到 example
-git remote add example https://github.com/xjh22222228/git-manual.git
+git remote add example https://github.com/cosyer/git-learning.git
 
 # 查看指定远程仓库信息
 git remote show example
@@ -198,6 +198,9 @@ git remote rename oldName newName # git remote rename example simple
 
 # 移除远程仓库
 git remote remove example
+
+# 修改远程URL，从HTTPS更改为SSH
+git remote set-url origin git@github.com:cosyer/git-learning.git
 ```
 
 
@@ -287,7 +290,7 @@ git log -i --grep="fix: #28"
 git log -S "alert(1)"
 
 # 查看指定作者历史记录
-git log --author=xjh22222228
+git log --author=cosyer
 
 # 查看某个文件的历史提交记录
 git log README.md
@@ -746,7 +749,7 @@ git tag -d v1.1.0
 # 删除远程标签
 git push origin --delete v1.1.0
 
-# 检查标签
+# 检出标签
 git checkout v1.1.0
 
 # 查看本地某个标签详细信息
@@ -861,14 +864,14 @@ git flow release finish v1.1.0
 
 ```bash
 # 添加子模块
-git submodule add https://github.com/xjh22222228/git-manual.git # 默认添加到当前目录下
-git submodule add https://github.com/xjh22222228/git-manual.git submodules/git-manual  # 添加到指定目录
+git submodule add https://github.com/cosyer/git-learning.git # 默认添加到当前目录下
+git submodule add https://github.com/cosyer/git-learning.git submodules/git-learning  # 添加到指定目录
 
 # -b 指定需要添加仓库的某个分支
-git submodule add -b develop https://github.com/xjh22222228/git-manual.git
+git submodule add -b develop https://github.com/cosyer/git-learning.git
 
 # 克隆一个包含子模块的项目 --recursive 用于递归克隆，否则子模块目录是空的
-git clone --recursive https://github.com/xjh22222228/git-manual.git
+git clone --recursive https://github.com/cosyer/git-learning.git
 
 # 如果已经克隆了一个包含子模块的项目，但忘记了 --recursive， 可以使用此命令 初始化、抓取并检出任何嵌套的子模块
 git submodule update --init --recursive
@@ -890,7 +893,7 @@ git commit -am "Remove a submodule" && git push # 提交代码并推送
 git pull
 
 # 这个时候需要进入子模块目录进行更新, 这样就完成了一个子模块更新，但是如果有很多子模块就比较麻烦了
-cd git-manual && git pull
+cd git-learning && git pull
 ```
 
 2、使用 `git submodule update` 更新子模块
@@ -993,9 +996,9 @@ git switch -c newBranch HEAD〜3
 
 Example：
 ```bash
-git log -n 1 --pretty=format:"%an" # xjh22222228
+git log -n 1 --pretty=format:"%an" # cosyer
 
-git log -n 1 --pretty=format:"%ae" # xjh22222228@gmail.com
+git log -n 1 --pretty=format:"%ae" # yzchenyu1995@gmail.com
 
 git log -n 1 --pretty=format:"%d" #  (HEAD -> master, origin/master, origin/HEAD)
 
