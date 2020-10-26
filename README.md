@@ -221,7 +221,7 @@ git cherry-pick -x 8f6c26fc122502886bdfd9aa55ecda26a3ccc31d
 
 
 ## git-stash
-应用场景：假设当前分支某些功能做到一半了, 突然需要切换到其他分支修改Bug, 但是又不想提交（因为切换分支必须把当前工作内容提交，否则无法切换），这个时候 `git stash` 应用场景就来了。
+应用场景：假设当前分支某些功能做到一半了, 突然需要切换到其他分支修改Bug, 但是又不想提交（因为切换分支必须清理当前工作区，否则无法切换），这个时候 `git stash` 应用场景就来了。
 
 ```bash
 # 保存当前修改工作区内容
@@ -1109,18 +1109,15 @@ git config --global alias.hist "log --graph --decorate --oneline --pretty=format
 ## GUI客户端
 推荐几款比较好用的 git 图形界面工具, 不分先后。
 
-- [Github Desktop](https://desktop.github.com/)
-- [git-fork](https://git-fork.com/)
-- [tower](https://www.git-tower.com/)
-- [Sourcetree](https://www.sourcetreeapp.com/)
-- [tortoiseGit](https://tortoisegit.org/)
-- [gitkraken](https://www.gitkraken.com/)
-- [smartgit](https://www.syntevo.com/smartgit/)
-- [gitup](https://gitup.co/)
-- [lazygit](https://github.com/jesseduffield/lazygit)
-
-
-
+- 免费 - [Github Desktop](https://desktop.github.com/)
+- 免费 - [Sourcetree](https://www.sourcetreeapp.com/)
+- 免费 - [tortoiseGit](https://tortoisegit.org/)
+- 免费 - [gitkraken](https://www.gitkraken.com/)
+- 免费 - [gitup](https://gitup.co/)
+- 收费 - [smartgit](https://www.syntevo.com/smartgit/)
+- 收费 - [git-fork](https://git-fork.com/)
+- 收费 - [tower](https://www.git-tower.com/)
+- 收费 - [lazygit](https://github.com/jesseduffield/lazygit)
 
 ## 生成SSHKey
 1、替换为您的GitHub电子邮件地址
@@ -1155,26 +1152,24 @@ Host *
 cat ~/.ssh/id_rsa.pub
 ```
 
-
-
 ## 提交规范
 
-- feat - 该提交含有新的特性
-- style - 通常是代码格式的修改
-- chore - 与src无关，通常是CI、依赖项等
-- fix - 修复Bug
-- docs - 文档修改
-- test - 单元测试改动
-- refactor - 代码重构
-- perf - 性能优化、体验
-- revert - 回滚版本
-- merge -  代码合并
-
-
+| 标志        | 描述              |
+| ---------- |------------------ |
+| feat  | 该提交含有新的特性 |
+| style  | 通常是代码格式的修改 |
+| chore  | 通常是代码格式的修改 |
+| fix  | 修复Bug |
+| docs  | 文档修改 |
+| test  | 单元测试改动 |
+| refactor  | 代码重构 |
+| perf  | 性能优化、体验 |
+| revert  | 回滚版本 |
+| merge  | 代码合并 |
 
 **Example**
 
-```
+```bash
 # 含有新特性
 git commit -m "feat: 新增忘记密码"
 
